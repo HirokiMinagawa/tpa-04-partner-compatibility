@@ -1,6 +1,6 @@
 const { candidates } = require('./data/candidates-data.js');
 
-const caluclatePoint = (submittedAnswerBlock, candidateAnswerBlock) => {
+const calculatePoint = (submittedAnswerBlock, candidateAnswerBlock) => {
   let score = 0;
   for (let i = 0, len = submittedAnswerBlock.length; i < len; i += 1) {
     const submittedAnswer = submittedAnswerBlock[i].value;
@@ -44,7 +44,7 @@ const calculateBestMatch = function(quizSubmissions) {
     for (let t = startQuestionBlock; t <= finishQuestionBlock; t += 1) {
       const submittedAnswerBlock = quizSubmissions[t];
       const candidateAnswerBlock = candidates[i][t];
-      score += caluclatePoint(submittedAnswerBlock, candidateAnswerBlock);
+      score += calculatePoint(submittedAnswerBlock, candidateAnswerBlock);
     }
 
     scoreStored.push(score);
